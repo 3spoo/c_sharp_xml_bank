@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -53,9 +53,9 @@ namespace ConsoleAppBank
 
             List<Dictionary<string, string>> intestatari = getIntestatari(xd_intestatari, xd_client, movimento);
             Console.WriteLine("RICHIESTA 4: ");
-            foreach(Dictionary<string, string> tmp_intestatari in intestatari)
+            foreach(Dictionary<string, string> tmp in intestatari)
             {
-                Console.WriteLine(tmp_intestatari["NOME"] + ", " + tmp_intestatari["COGNOME"] + ", " + tmp_intestatari["ETA"] + ", " + tmp_intestatari["RUOLO"]);
+                Console.WriteLine(tmp["NOME"] + ", " + tmp["COGNOME"] + ", " + tmp["ETA"] + ", " + tmp["RUOLO"]);
             }
         }
 
@@ -105,21 +105,21 @@ namespace ConsoleAppBank
 
         public static Dictionary<string, string> getContoAndFiliale(XmlDocument xd_conti, XmlDocument xd_filiali, Dictionary<string, string> movimento)
         {
-            string idf = "_";
+            string id = "_";
 
-            foreach (XmlNode conti in xd_conti.DocumentElement.ChildNodes)
+            foreach (XmlNode conto in xd_conti.DocumentElement.ChildNodes)
             {
-                if (conti["IBAN"].InnerText.Equals(movimento["IBAN"]))
+                if (conto["IBAN"].InnerText.Equals(movimento["IBAN"]))
                 {
-                    movimento.Add("TIPO_CONTO", conti["TIPO_CONTO"].InnerText);
-                    idf = conti["ID_FILIALE"].InnerText;
+                    movimento.Add("TIPO_CONTO", conto["TIPO_CONTO"].InnerText);
+                    id = conto["ID_FILIALE"].InnerText;
                     break;
                 }
             }
 
             foreach (XmlNode filiale in xd_filiali.DocumentElement.ChildNodes)
             {
-                if (filiale["ID_FILIALE"].InnerText.Equals(idf))
+                if (filiale["ID_FILIALE"].InnerText.Equals(id))
                 {
                     movimento.Add("DENOMINAZIONE", filiale["DENOMINAZIONE"].InnerText);
                     movimento.Add("SIGLA_PROVINCIA", filiale["SIGLA_PROVINCIA"].InnerText);
