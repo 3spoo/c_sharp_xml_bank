@@ -56,6 +56,7 @@ Aggiungere a quanto già svolto (**RICHIESTE N. 1, 2**) il **nome** della Region
 Aggiungere a quanto già svolto (**RICHIESTE N. 1, 2, 3**) **cognome**, **nome** ed **età** (\*) di **tutti gli intestatari** del conto (titolare ed eventuale cointestatario), indicando per ciascuno il ruolo.
 
 *Sarà necessario utilizzare anche i file CONTI\_INTESTATARI.xml e CLIENTI.xml.*
+
 ---
 
 *PUNTEGGIO: la somma dei punti delle richieste (9,0) più 1 punto di base per la consegna di un elaborato funzionante.*
