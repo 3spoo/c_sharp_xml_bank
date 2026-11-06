@@ -9,19 +9,19 @@ Gli IBAN sono fittizi.
 
 | **FILE** | **CONTENUTI** |
 | --- | --- |
-| **REGIONI.xml** | Le **20** Regioni italiane: codice numerico (da 1 a 20), nome della Regione |
-| **FILIALI.xml** | Le filiali della banca: id, denominazione, città, sigla della provincia, **codice** della Regione |
-| **CLIENTI.xml** | **700** anagrafiche: id univoco, cognome, nome, sesso, **data di nascita** (formato `aaaa-mm-gg`) |
-| **CONTI.xml** | **600** conti: IBAN, id della filiale, tipo di conto (CORRENTE, RISPARMIO, DEPOSITO), data di apertura, **fido** concesso (in euro) e **saldo iniziale** (saldo al 01/01/2026) |
-| **CONTI\_INTESTATARI.xml** | Le “associazioni” tra conti e clienti: IBAN del conto, id del cliente, ruolo (TITOLARE oppure COINTESTATARIO). **Un conto ha un titolare ed eventualmente un cointestatario; un cliente può essere intestatario di più conti (oppure di nessuno).** |
-| **MOVIMENTI.xml** | **7093** movimenti: id, data (formato `gg/mm/aaaa`), orario, IBAN del conto, importo, causale, canale. Gli **importi positivi sono accrediti, quelli negativi sono addebiti**; il separatore decimale è il punto. I movimenti **non sono ordinati** per data. |
+| **REGIONI.xml** | Le **20** Regioni italiane: ID (da 1 a 20), NOME REGIONE |
+| **FILIALI.xml** | Le filiali della banca: ID, DENOMINAZIONE, CITTA, SIGLA_PROVINCIA, **CODICE** REGIONE |
+| **CLIENTI.xml** | **700** anagrafiche: ID, COGNOME, NOME, SESSO, **DATA_NASCITA** (formato `aaaa-mm-gg`) |
+| **CONTI.xml** | **600** conti: IBAN, ID_FILIALE, TIPO_CONTO (CORRENTE, RISPARMIO, DEPOSITO), DATA, **FIDO** concesso (in euro) e **SALDO_INIZILE** (saldo al 01/01/2026) |
+| **CONTI\_INTESTATARI.xml** | Le “associazioni” tra conti e clienti: IBAN, ID_CLIENTE, RUOLO (TITOLARE oppure COINTESTATARIO). **Un conto ha un titolare ed eventualmente un cointestatario; un cliente può essere intestatario di più conti (oppure di nessuno).** |
+| **MOVIMENTI.xml** | **7093** movimenti: ID, DATA (formato `gg/mm/aaaa`), ORARIO, IBAN, IMPORTO, CAUSALE, CANALE. Gli **importi positivi sono accrediti, quelli negativi sono addebiti**; il separatore decimale è il punto. I movimenti **non sono ordinati** per data. |
 
 ## VINCOLI
 
-- Costruisci **UN SOLO** applicativo in linguaggio C# che soddisfi tutte le richieste (non un programma per ogni richiesta).
+- Costruisci **UN SOLO** applicativo che soddisfi tutte le richieste (non un programma per ogni richiesta).
 - Per gli importi usa il tipo `decimal` (non `double`) e fai attenzione alla cultura per la lettura dei numeri decimali.
-- Il **saldo attuale** di un conto è il saldo iniziale più la somma di tutti i suoi movimenti.
-- (\*) L’**età** va calcolata in modo **esatto** (tenendo conto se il compleanno è già avvenuto) rispetto alla **data in cui si utilizza l’applicativo**: non vanno usati valori costanti.
+- Il **SALDO_ATTUALEe** di un conto è il saldo iniziale più la somma di tutti i suoi movimenti.
+- (\*) L’**ETA** va calcolata in modo **esatto** (tenendo conto se il compleanno è già avvenuto) rispetto alla **data in cui si utilizza l’applicativo**: non vanno usati valori costanti.
 - Attenzione: i dati provengono da un sistema reale e potrebbero contenere incongruenze. Un buon applicativo non deve andare in errore.
 
 ## RICHIESTE
@@ -29,32 +29,22 @@ Gli IBAN sono fittizi.
 ### RICHIESTA N. 1 – PUNTI 2,5
 
 Determinare e comunicare a video le seguenti informazioni relative al movimento di **addebito di importo più elevato** (cioè con l’importo negativo più grande in valore assoluto):
-
-- data (**da esprimere nel formato gg-mm-aaaa**)
-- orario
-- IBAN
-- importo
-- causale
-- canale
-
+DATA (**da esprimere nel formato gg-mm-aaaa**), ORARIO, IBAN, IMPORTO, CAUSALE, CANALE.
 *Tutte queste informazioni si ricavano dal solo file MOVIMENTI.xml.*
 
 ### RICHIESTA N. 2 – PUNTI 2,0
 
-Aggiungere a quanto già svolto (**RICHIESTA N. 1**) il **tipo di conto** e la **filiale** (denominazione, città e sigla della provincia) presso cui il conto è stato aperto.
-
+Aggiungere a quanto già svolto (**RICHIESTA N. 1**) il **TIPO DI CONTO** e la **FILIALE** (denominazione, città e sigla della provincia) presso cui il conto è stato aperto.
 *Sarà necessario utilizzare anche i file CONTI.xml e FILIALI.xml.*
 
 ### RICHIESTA N. 3 – PUNTI 1,5
 
-Aggiungere a quanto già svolto (**RICHIESTE N. 1, 2**) il **nome** della Regione in cui si trova la filiale.
-
+Aggiungere a quanto già svolto (**RICHIESTE N. 1, 2**) il **NOME** della Regione in cui si trova la filiale.
 *Sarà necessario utilizzare anche il file REGIONI.xml.*
 
 ### RICHIESTA N. 4 – PUNTI 3,0
 
-Aggiungere a quanto già svolto (**RICHIESTE N. 1, 2, 3**) **cognome**, **nome** ed **età** (\*) di **tutti gli intestatari** del conto (titolare ed eventuale cointestatario), indicando per ciascuno il ruolo.
-
+Aggiungere a quanto già svolto (**RICHIESTE N. 1, 2, 3**) **COGNOME**, **NOME** ed **ETA** (\*) di **TUTTI gli INTESTATARI** del conto (TITOLARE ed eventuale COINTESTATARIO), indicando per ciascuno il RUOLO.
 *Sarà necessario utilizzare anche i file CONTI\_INTESTATARI.xml e CLIENTI.xml.*
 
 ---
