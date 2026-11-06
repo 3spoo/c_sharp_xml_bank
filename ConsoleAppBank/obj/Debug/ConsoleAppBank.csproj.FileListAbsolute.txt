@@ -1,0 +1,8 @@
+C:\ConsoleAppBank\ConsoleAppBank\bin\Debug\ConsoleAppBank.exe.config
+C:\ConsoleAppBank\ConsoleAppBank\bin\Debug\ConsoleAppBank.exe
+C:\ConsoleAppBank\ConsoleAppBank\bin\Debug\ConsoleAppBank.pdb
+C:\ConsoleAppBank\ConsoleAppBank\obj\Debug\ConsoleAppBank.csproj.AssemblyReference.cache
+C:\ConsoleAppBank\ConsoleAppBank\obj\Debug\ConsoleAppBank.csproj.CoreCompileInputs.cache
+C:\ConsoleAppBank\ConsoleAppBank\obj\Debug\ConsoleAppBank.exe
+C:\ConsoleAppBank\ConsoleAppBank\obj\Debug\ConsoleAppBank.pdb
+C:\ConsoleAppBank\ConsoleAppBank\obj\Debug\ConsoleAppBank.exe.config
